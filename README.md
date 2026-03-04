@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 End-to-End CI/CD Pipeline for DevOps Portfolio Application
 
 ## 📌 Project Overview
@@ -143,3 +144,7 @@ AWS | Linux | CI/CD | Automation
 
 GitHub: https://github.com/YOUR_USERNAME  
 LinkedIn: https://www.linkedin.com/in/shaik-mahaboob-devops1/
+=======
+# devops-portfolio
+devops-portfolio
+>>>>>>> 29a5775 (Initial commit)
