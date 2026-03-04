@@ -142,7 +142,7 @@ Mahaboob Shaik
 Cloud & DevOps Engineer  
 AWS | Linux | CI/CD | Automation
 
-GitHub: https://github.com/YOUR_USERNAME  
+GitHub: https://github.com/Mahaboob3247  
 LinkedIn: https://www.linkedin.com/in/shaik-mahaboob-devops1/
 =======
 # devops-portfolio
