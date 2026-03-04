@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# 🚀 End-to-End CI/CD Pipeline for DevOps Portfolio Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Project Overview
 
-## Available Scripts
+This project demonstrates a production-style CI/CD pipeline for a React-based portfolio application.  
+The pipeline automates build, containerization, image push, and deployment using Jenkins and Docker on AWS EC2.
 
-In the project directory, you can run:
+The objective of this project is to simulate a real-world DevOps workflow used in enterprise environments.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🏗️ Architecture Flow
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Developer → GitHub → Jenkins → Docker Build → DockerHub → EC2 Deployment → Live Application
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+### Application
+- React (Vite / CRA)
+- Nginx (Production server)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### DevOps Tools
+- Git
+- GitHub
+- Jenkins
+- Docker
+- DockerHub
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Cloud Platform
+- AWS EC2 (Ubuntu)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ CI/CD Pipeline Stages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The Jenkins pipeline performs the following automated steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Checkout source code from GitHub
+2. Build Docker image
+3. Tag Docker image
+4. Push image to DockerHub
+5. Stop existing container (if running)
+6. Deploy new container automatically
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Pipeline is defined using a Jenkinsfile (Declarative Pipeline).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🐳 Docker Implementation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Multi-stage Docker build:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Stage 1: Node build environment
+- Stage 2: Nginx production server
 
-### Code Splitting
+Application is served on port 80 inside container.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📂 Project Structure
+devops-portfolio/
+│
+├── src/
+├── public/
+├── Dockerfile
+├── Jenkinsfile
+├── package.json
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🚀 How to Run Locally
 
-### Advanced Configuration
+### Clone Repository
+git clone https://github.com/YOUR\_USERNAME/devops-portfolio.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+cd devops-portfolio
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Build Docker Image
 
-### `npm run build` fails to minify
+docker build -t devops-portfolio .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Run Container
+
+docker run -p 8080:80 devops-portfolio
+
+Access application:
+
+http://localhost:8080
+
+---
+
+## ☁️ AWS Deployment
+
+- Jenkins installed on EC2
+- Docker installed on EC2
+- Security Group ports open:
+  - 22 (SSH)
+  - 8080 (Jenkins)
+  - 80 (Application)
+
+Application accessible via:
+
+http://EC2_PUBLIC_IP
+
+---
+
+## 🔐 Security Considerations
+
+- DockerHub credentials stored securely in Jenkins Credentials Manager
+- No hardcoded secrets in repository
+- CI/CD pipeline uses environment variables
+
+---
+
+## 📈 Future Enhancements
+
+- Terraform for Infrastructure as Code
+- Kubernetes deployment
+- Blue-Green deployment strategy
+- GitHub Webhook auto trigger
+- SSL with Nginx reverse proxy
+- Monitoring using Prometheus & Grafana
+
+---
+
+## 🏆 Resume Highlight
+
+Designed and implemented an end-to-end CI/CD pipeline using Jenkins, Docker, and AWS EC2 with automated containerized deployment and DockerHub integration.
+
+---
+
+## 👨‍💻 Author
+
+Mahaboob Shaik  
+Cloud & DevOps Engineer  
+AWS | Linux | CI/CD | Automation
+
+GitHub: https://github.com/YOUR_USERNAME  
+LinkedIn: https://www.linkedin.com/in/shaik-mahaboob-devops1/
